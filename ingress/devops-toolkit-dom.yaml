@@ -44,7 +44,8 @@ metadata:
 
 spec:
   rules:
-  - http:
+  - host: devopstoolkitseries.com
+    http:
       paths:
       - pathType: ImplementationSpecific
         path: "/"
