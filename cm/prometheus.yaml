@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prometheus
+spec:
+  selector:
+    matchLabels:
+      type: monitor
+      service: prometheus
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        type: monitor
+        service: prometheus
+    spec:
+      containers:
+      - name: prometheus
+        image: prom/prometheus:v2.0.0
+        command:
+        - /bin/prometheus
